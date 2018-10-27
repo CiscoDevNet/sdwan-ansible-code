@@ -1,4 +1,4 @@
-- name: Get feature templates
+- name: Get Feature Templates
   uri:
     url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/feature
     method: GET

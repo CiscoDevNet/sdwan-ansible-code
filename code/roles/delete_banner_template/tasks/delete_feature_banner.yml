@@ -1,4 +1,4 @@
-- name: Delete feature templates
+- name: Delete Feature Template
   uri:
     url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/feature/{{item.templateId}}
     method: DELETE

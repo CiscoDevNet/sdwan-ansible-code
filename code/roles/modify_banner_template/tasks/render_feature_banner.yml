@@ -1,4 +1,4 @@
-- name: Clean rendered templates
+- name: Clean Rendered Templates
   file:
     path: "{{item}}"
     state: absent
@@ -6,5 +6,5 @@
   with_fileglob:
     - "{{role_path}}/files/*"
 
-- name: render template
+- name: Render Template
   template: src="BANNER_MASTER_TEMPLATE.j2" dest={{role_path}}/files/{{ Template_Name }}.json

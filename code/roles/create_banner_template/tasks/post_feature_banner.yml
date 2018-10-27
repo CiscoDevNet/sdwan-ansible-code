@@ -1,4 +1,4 @@
-- name: push template
+- name: Create Feature Template
   uri:
     url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/feature
     method: POST

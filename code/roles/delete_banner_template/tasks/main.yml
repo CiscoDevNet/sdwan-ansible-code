@@ -1,3 +1,3 @@
-- import_tasks: get_feature_banner.yml
+- import_tasks: get_feature_templates.yml
 
 - import_tasks: delete_feature_banner.yml

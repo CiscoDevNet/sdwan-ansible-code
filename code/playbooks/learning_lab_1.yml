@@ -11,7 +11,7 @@
     -  role: create_banner_template
        tags: create
        vars:
-         - Template_Name: 'DevNetSandbox2'
+         - Template_Name: 'DevNetSandbox'
          - Template_Description: 'Description'
          - Login_Banner: 'You are welcome'
          - MOTD: 'You are welcome'

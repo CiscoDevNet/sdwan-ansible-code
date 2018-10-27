@@ -1,0 +1,7 @@
+all:
+  hosts:
+    vManage:
+      ansible_host: localhost
+      ansible_port: 8443
+      username: admin
+      password: admin

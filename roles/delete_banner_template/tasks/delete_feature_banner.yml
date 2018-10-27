@@ -1,0 +1,11 @@
+- name: Delete feature templates
+  uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/feature/{{item.templateId}}
+    method: DELETE
+    return_content: yes
+    validate_certs: no
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"
+  with_items: "{{template_list.json.data}}"
+  when : item.templateName == Template_Name

@@ -1,0 +1,10 @@
+- name: Get feature templates
+  uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/feature
+    method: GET
+    return_content: yes
+    validate_certs: no
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"
+  register: template_list

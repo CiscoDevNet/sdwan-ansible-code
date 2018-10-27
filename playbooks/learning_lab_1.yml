@@ -1,0 +1,30 @@
+---
+- name: CiscoDevNet SDWAN Ansible Learning Lab 1
+  hosts: all
+  connection: local
+  gather_facts: no
+
+  roles:
+    -  role: login
+       tags: login,create,modify,delete
+
+    -  role: create_banner_template
+       tags: create
+       vars:
+         - Template_Name: 'DevNetSandbox2'
+         - Template_Description: 'Description'
+         - Login_Banner: 'You are welcome'
+         - MOTD: 'You are welcome'
+
+    -  role: modify_banner_template
+       tags: modify
+       vars:
+         - Template_Name: 'DevNetSandbox'
+         - Template_Description: 'Description'
+         - Login_Banner: 'You are very very welcome'
+         - MOTD: 'You are very very welcome'
+
+    -  role: delete_banner_template
+       tags: delete
+       vars:
+         - Template_Name: 'DevNetSandbox'

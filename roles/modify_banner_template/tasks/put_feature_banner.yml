@@ -1,0 +1,25 @@
+- set_fact:
+    template_id: "{{ item.templateId}}"
+  with_items: "{{template_list.json.data}}"
+  when : item.templateName == Template_Name
+  no_log: True
+
+- debug:
+    msg: "{{ template_id }}"
+
+
+- name: push template
+  uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/feature/{{template_id}}
+    method: PUT
+    return_content: yes
+    validate_certs: no
+    body: "{{lookup('file', '{{item}}')}}"
+    body_format: json
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"
+  with_fileglob:
+    - "{{ role_path }}/files/*.json"
+
+

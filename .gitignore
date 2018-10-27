@@ -1,0 +1,5 @@
+not_to_export
+*.retry
+/.idea/
+/roles/create_banner_template/files/
+/roles/modify_banner_template/files/

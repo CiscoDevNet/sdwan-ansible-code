@@ -13,7 +13,9 @@ requests==2.18.4
 To run the exercises you first have to install the requirements (the use of a virtualenv is reccomended):
 
 `python3 -m venv ANSIBLE_VENV`
+
 `source ANSIBLE_VENV/bin/activate`
+
 `pip install -r requirements.txt`  
 
 you can then clone the repository:

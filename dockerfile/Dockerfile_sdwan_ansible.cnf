@@ -6,5 +6,8 @@ RUN yum -y install git
 RUN pip install --upgrade pip
 RUN pip install requests
 
+RUN mkdir /home/devnet
+WORKDIR /home/devnet
+
 ENTRYPOINT ["ansible-playbook", "site.yml"]
 

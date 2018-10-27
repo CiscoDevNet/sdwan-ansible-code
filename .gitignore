@@ -3,3 +3,4 @@ code/*.retry
 /.idea/
 code/roles/create_banner_template/files/
 code/roles/modify_banner_template/files/
+/code/site.retry

@@ -1,7 +1,7 @@
 all:
   hosts:
     vManage:
-      ansible_host: localhost
+      ansible_host: sandboxsdwan.cisco.com
       ansible_port: 8443
-      username: admin
-      password: admin
+      username: devnetuser
+      password: Cisco123!

@@ -1,0 +1,10 @@
+FROM williamyeh/ansible:centos7
+USER root
+
+RUN yum -y install git
+
+RUN pip install --upgrade pip
+RUN pip install requests
+
+ENTRYPOINT ["ansible-playbook", "site.yml"]
+

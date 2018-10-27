@@ -21,6 +21,7 @@ To run the exercises you first have to install the requirements (the use of a vi
 you can then clone the repository:
 
 `git clone https://github.com/CiscoDevNet/sdwan-ansible-code.git` 
+
 `cd sdwan-ansible-code/code`
 
 Verify that the hostname,username and password are correct:

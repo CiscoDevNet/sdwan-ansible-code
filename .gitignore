@@ -1,5 +1,5 @@
 not_to_export
 code/*.retry
-/.idea/
+
 
 /code/site.retry

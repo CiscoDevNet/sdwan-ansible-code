@@ -9,7 +9,7 @@ Cisco SD-WAN provides a great tool for configuration management and network moni
 
 ## Objectives
 The code here can be used with the Cisco DevNet Learning Lab
-[SD-WAN automation with Ansible](https://learninglabs.cisco.com/lab/sdwan_automation_with_ansible/step/1), through which the user will get familiar both with the SD-WAN REST API and with Ansible.
+[SD-WAN automation with Ansible](https://developer.cisco.com/learning/lab/sdwan_automation_with_ansible/step/1), through which the user will get familiar both with the SD-WAN REST API and with Ansible.
 
 You will:
 

@@ -1,0 +1,3 @@
+- import_tasks: get_device_template_db.yml
+
+- import_tasks: get_config_input.yml

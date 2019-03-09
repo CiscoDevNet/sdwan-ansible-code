@@ -1,0 +1,3 @@
+- import_tasks: render_device_template.yml
+
+- import_tasks: post_device_template.yml

@@ -1,0 +1,32 @@
+- name: get feature templates
+  uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/feature
+    method: GET
+    return_content: yes
+    validate_certs: no
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"
+  register: template_list
+
+- set_fact:
+    feature_template_db: "{{ feature_template_db|default({}) | combine( {item.templateName: item.templateId } ) }}"
+  no_log: True
+  with_items: "{{ template_list.json.data }}"
+
+- debug:
+    msg: "{{ feature_template_db }}"
+
+- name: Clean rendered templates
+  file:
+    path: "{{item}}"
+    state: absent
+    force: true
+  run_once: True
+  with_fileglob:
+    - "{{role_path}}/files/*"
+
+- name: render template
+  template: src="DEVICE_TEMPLATE_V0.j2" dest={{role_path}}/files/{{ Device_Template_Name }}.json
+
+

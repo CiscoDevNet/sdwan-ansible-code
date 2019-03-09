@@ -1,0 +1,49 @@
+---
+- name: CiscoDevNet SDWAN Ansible Learning Lab 2
+  hosts: all
+  connection: local
+  gather_facts: no
+
+  roles:
+    -  role: login
+       tags: lab2:login,lab2:device,lab2:attach,lab2:input
+
+    -  role: create_device_template
+       tags: lab2:device
+       vars:
+         - Device_Template_Name: 'DeviceTemplate2'
+         - Device_Template_Description: 'Automatically generated'
+         - Feature_AAA: Factory_Default_AAA_Template
+         - Feature_BFD: Factory_Default_BFD_Template
+         - Feature_Banner: DevNetSandbox
+         - Feature_Logging: Factory_Default_Logging_Template
+         - Feature_NTP: NTP_SERVER_TEMPLATE
+         - Feature_OMP: Factory_Default_vEdge_OMP_Template
+         - Feature_SNMP: SNMP_GLOBAL_TEMPLATE
+         - Feature_Security: Factory_Default_vEdge_Security_Template
+         - Feature_System: Factory_Default_vEdge_System_Template
+         - Feature_VPN:
+            VPN0_MGMT_TEMPLATE:
+            - GE0/0_MGMT_INTERFACE
+            Factory_Default_vEdge_VPN_512_Template:
+            - VPN512_ETH0_TEMPLATE
+            VPN1_TEMPLATE:
+            - LOOPBACK1_TEMPLATE
+
+    -  role: get_config_input
+       tags: lab2:input
+       vars:
+         - Device_Template_Name: 'DeviceTemplate1'
+         - Device_UUID: '0435c3e8-d3a0-4c6b-af0a-f95d41974d69'
+
+    -  role: attach_device_template
+       tags: lab2:attach
+       vars:
+         - Template_Name: 'DeviceTemplate1'
+         - RequiredInput:
+            //system/hostname: 1.1.1.99
+            //system/site-id: 99
+            //system/system-ip: 1.1.1.99
+            csv-deviceIP: 1.1.1.99
+            csv-deviceId: 0435c3e8-d3a0-4c6b-af0a-f95d41974d69
+            csv-host-name: 1.1.1.99

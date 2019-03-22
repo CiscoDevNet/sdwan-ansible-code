@@ -6,12 +6,15 @@
 
   roles:
     -  role: login
-       tags: lab2:login,lab2:device,lab2:attach,lab2:input
+       tags: lab2:login,lab2:basic,lab2:device,lab2:attach,lab2:input
+
+    -  role: basic_templates
+       tags: lab2:basic
 
     -  role: create_device_template
        tags: lab2:device
        vars:
-         - Device_Template_Name: 'DeviceTemplate2'
+         - Device_Template_Name: 'DeviceTemplate'
          - Device_Template_Description: 'Automatically generated'
          - Feature_AAA: Factory_Default_AAA_Template
          - Feature_BFD: Factory_Default_BFD_Template
@@ -34,16 +37,19 @@
        tags: lab2:input
        vars:
          - Device_Template_Name: 'DeviceTemplate1'
-         - Device_UUID: '0435c3e8-d3a0-4c6b-af0a-f95d41974d69'
+         - Device_UUID: '100faff9-8b36-4312-bf97-743b26bd0211'
 
     -  role: attach_device_template
        tags: lab2:attach
        vars:
          - Template_Name: 'DeviceTemplate1'
          - RequiredInput:
-            //system/hostname: 1.1.1.99
+            csv-deviceIP: 1.1.1.99
+            csv-deviceId: 100faff9-8b36-4312-bf97-743b26bd0211
+            csv-host-name: 1.1.1.99
+            //system/host-name: automatically
             //system/site-id: 99
             //system/system-ip: 1.1.1.99
-            csv-deviceIP: 1.1.1.99
-            csv-deviceId: 0435c3e8-d3a0-4c6b-af0a-f95d41974d69
-            csv-host-name: 1.1.1.99
+            /0/ge0/0/interface/ip/address: 10.10.20.60/24
+            /1/loopback1/interface/ip/address: 1.1.1.99/32
+

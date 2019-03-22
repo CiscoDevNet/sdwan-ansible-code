@@ -1,0 +1,109 @@
+{
+    "deviceType": [
+        "vedge-cloud"
+    ],
+    "factoryDefault": false,
+    "templateDefinition": {
+        "dns": {
+            "vipObjectType": "tree",
+            "vipPrimaryKey": [
+                "dns-addr"
+            ],
+            "vipType": "constant",
+            "vipValue": [
+                {
+                    "dns-addr": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "8.8.8.8"
+                    },
+                    "priority-order": [
+                        "dns-addr",
+                        "role"
+                    ],
+                    "role": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "primary"
+                    }
+                },
+                {
+                    "dns-addr": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "8.8.4.4"
+                    },
+                    "priority-order": [
+                        "dns-addr",
+                        "role"
+                    ],
+                    "role": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "secondary"
+                    }
+                }
+            ]
+        },
+        "ecmp-hash-key": {
+            "layer4": {
+                "vipObjectType": "object",
+                "vipType": "ignore",
+                "vipValue": "false",
+                "vipVariableName": "vpn_layer4"
+            }
+        },
+        "host": {
+            "vipObjectType": "tree",
+            "vipPrimaryKey": [
+                "hostname"
+            ],
+            "vipType": "ignore",
+            "vipValue": []
+        },
+        "ip": {
+            "gre-route": {},
+            "ipsec-route": {}
+        },
+        "ipv6": {},
+        "name": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "VPN1",
+            "vipVariableName": "vpn_name"
+        },
+        "omp": {
+            "advertise": {
+                "vipObjectType": "tree",
+                "vipPrimaryKey": [
+                    "protocol"
+                ],
+                "vipType": "ignore",
+                "vipValue": []
+            }
+        },
+        "service": {
+            "vipObjectType": "tree",
+            "vipPrimaryKey": [
+                "svc-type"
+            ],
+            "vipType": "ignore",
+            "vipValue": []
+        },
+        "tcp-optimization": {
+            "vipObjectType": "node-only",
+            "vipType": "ignore",
+            "vipValue": "false",
+            "vipVariableName": "vpn_tcp_optimization"
+        },
+        "vpn-id": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": 1
+        }
+    },
+    "templateDescription": "VPN1 TEMPLATE",
+    "templateMinVersion": "15.0.0",
+    "templateName": "VPN1_TEMPLATE",
+    "templateType": "vpn-vedge"
+}

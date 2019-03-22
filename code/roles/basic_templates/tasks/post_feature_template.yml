@@ -1,0 +1,13 @@
+- name: Create Feature Template
+  uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/feature
+    method: POST
+    return_content: yes
+    validate_certs: no
+    body: "{{lookup('file', '{{item}}')}}"
+    body_format: json
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"
+  with_fileglob:
+    - "{{ role_path }}/files/*.json"

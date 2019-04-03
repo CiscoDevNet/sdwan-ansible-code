@@ -1,0 +1,5 @@
+- import_tasks: get_device_template_db.yml
+
+- import_tasks: render_attach_template.yml
+
+- import_tasks: attach_template.yml

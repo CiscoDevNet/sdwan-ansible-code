@@ -1,0 +1,20 @@
+{
+   "deviceTemplateList":[
+      {
+         "templateId":"{{ device_template_db[Template_Name] }}",
+         "device":[
+            {
+
+{% for variable,value in  RequiredInput.iteritems()  %}
+               "{{variable}}" : "{{value|lower}}",
+{% endfor %}
+
+
+
+            }
+         ],
+         "isEdited":false,
+         "isMasterEdited":false
+      }
+   ]
+}

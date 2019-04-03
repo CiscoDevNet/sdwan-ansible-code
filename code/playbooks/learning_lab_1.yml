@@ -6,10 +6,10 @@
 
   roles:
     -  role: login
-       tags: login,create,modify,delete
+       tags: lab1:login,lab1:create,lab1:modify,lab1:delete
 
     -  role: create_banner_template
-       tags: create
+       tags: lab1:create
        vars:
          - Template_Name: 'DevNetSandbox'
          - Template_Description: 'Description'
@@ -17,7 +17,7 @@
          - MOTD: 'You are welcome'
 
     -  role: modify_banner_template
-       tags: modify
+       tags: lab1:modify
        vars:
          - Template_Name: 'DevNetSandbox'
          - Template_Description: 'Description'
@@ -25,6 +25,6 @@
          - MOTD: 'You are very very welcome'
 
     -  role: delete_banner_template
-       tags: delete
+       tags: lab1:delete
        vars:
          - Template_Name: 'DevNetSandbox'

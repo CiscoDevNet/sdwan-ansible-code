@@ -1,0 +1,72 @@
+{
+    "deviceType": [
+        "vedge-cloud"
+    ],
+    "factoryDefault": false,
+    "templateDefinition": {
+        "keys": {
+            "trusted": {
+                "vipObjectType": "list",
+                "vipType": "ignore",
+                "vipVariableName": "trusted_key"
+            }
+        },
+        "server": {
+            "vipObjectType": "tree",
+            "vipPrimaryKey": [
+                "name"
+            ],
+            "vipType": "constant",
+            "vipValue": [
+                {
+                    "key": {
+                        "vipObjectType": "object",
+                        "vipType": "ignore",
+                        "vipVariableName": "ntp_server_server_auth_key"
+                    },
+                    "name": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "172.16.0.1",
+                        "vipVariableName": "ntp_server_host"
+                    },
+                    "prefer": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "true",
+                        "vipVariableName": "ntp_server_prefer"
+                    },
+                    "priority-order": [
+                        "name",
+                        "key",
+                        "vpn",
+                        "version",
+                        "source-interface",
+                        "prefer"
+                    ],
+                    "source-interface": {
+                        "vipObjectType": "object",
+                        "vipType": "ignore",
+                        "vipVariableName": "ntp_server_source_interface"
+                    },
+                    "version": {
+                        "vipObjectType": "object",
+                        "vipType": "ignore",
+                        "vipValue": 4,
+                        "vipVariableName": "ntp_server_version"
+                    },
+                    "vpn": {
+                        "vipObjectType": "object",
+                        "vipType": "ignore",
+                        "vipValue": 0,
+                        "vipVariableName": "ntp_server_vpn"
+                    }
+                }
+            ]
+        }
+    },
+    "templateDescription": "NTP SERVER TEMPLATE",
+    "templateMinVersion": "15.0.0",
+    "templateName": "NTP_SERVER_TEMPLATE",
+    "templateType": "ntp"
+}

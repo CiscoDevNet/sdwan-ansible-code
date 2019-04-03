@@ -1,0 +1,11 @@
+- name: attach device template
+  uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/device/config/attachfeature
+    method: POST
+    return_content: yes
+    validate_certs: no
+    body: "{{lookup('file', '{{ role_path }}/files/attach_template')}}"
+    body_format: json
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"

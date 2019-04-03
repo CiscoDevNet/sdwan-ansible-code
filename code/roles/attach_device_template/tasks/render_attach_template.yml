@@ -1,0 +1,14 @@
+- name: Clean rendered templates
+  file:
+    path: "{{item}}"
+    state: absent
+    force: true
+  run_once: True
+  with_fileglob:
+    - "{{role_path}}/files/*"
+
+- name: generate template
+  connection: local
+  template:
+    src: ATTACH_VEDGE.j2
+    dest: "{{ role_path }}/files/attach_template"

@@ -9,3 +9,4 @@
     headers:
       Cookie: "{{login.set_cookie}}"
       Content-Type: "application/json"
+  register: result

@@ -26,7 +26,7 @@
          - Feature_Security: Factory_Default_vEdge_Security_Template
          - Feature_System: Factory_Default_vEdge_System_Template
          - Feature_VPN:
-            VPN0_MGMT_TEMPLATE:
+            Factory_Default_vEdge_VPN_0_Template:
             - GE0/0_MGMT_INTERFACE
             Factory_Default_vEdge_VPN_512_Template:
             - VPN512_ETH0_TEMPLATE
@@ -36,20 +36,20 @@
     -  role: get_config_input
        tags: lab2:input
        vars:
-         - Device_Template_Name: 'DeviceTemplate1'
+         - Device_Template_Name: 'DeviceTemplate'
          - Device_UUID: '100faff9-8b36-4312-bf97-743b26bd0211'
 
     -  role: attach_device_template
        tags: lab2:attach
        vars:
-         - Template_Name: 'DeviceTemplate1'
+         - Template_Name: 'DeviceTemplate'
          - RequiredInput:
-            csv-deviceIP: 1.1.1.99
+            csv-deviceIP: 4.4.4.60
             csv-deviceId: 100faff9-8b36-4312-bf97-743b26bd0211
-            csv-host-name: 1.1.1.99
-            //system/host-name: automatically
-            //system/site-id: 99
-            //system/system-ip: 1.1.1.99
+            csv-host-name: vedge-001-automatic
+            //system/host-name: vedge-001-automatic
+            //system/site-id: 500
+            //system/system-ip: 4.4.4.60
             /0/ge0/0/interface/ip/address: 10.10.20.60/24
-            /1/loopback1/interface/ip/address: 1.1.1.99/32
+            /1/loopback1/interface/ip/address: 4.4.4.60/32
 

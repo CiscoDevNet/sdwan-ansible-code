@@ -1,0 +1,107 @@
+{
+    "deviceType": [
+        "vedge-cloud"
+    ],
+    "factoryDefault": false,
+    "templateDefinition": {
+        "community": {
+            "vipObjectType": "tree",
+            "vipPrimaryKey": [
+                "name"
+            ],
+            "vipType": "constant",
+            "vipValue": [
+                {
+                    "authorization": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "read-only",
+                        "vipVariableName": "snmp_community_authorization"
+                    },
+                    "name": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "DevNet-RO"
+                    },
+                    "priority-order": [
+                        "name",
+                        "authorization",
+                        "view"
+                    ],
+                    "view": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "DEVNET",
+                        "vipVariableName": "snmp_community_view"
+                    }
+                }
+            ]
+        },
+        "contact": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "EUGENE",
+            "vipVariableName": "snmp_contact"
+        },
+        "location": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "GALWAY",
+            "vipVariableName": "snmp_device_location"
+        },
+        "name": {
+            "vipObjectType": "object",
+            "vipType": "ignore",
+            "vipVariableName": "snmp_device_name"
+        },
+        "shutdown": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "false",
+            "vipVariableName": "snmp_shutdown"
+        },
+        "trap": {
+            "group": {
+                "vipObjectType": "tree",
+                "vipPrimaryKey": [
+                    "group-name"
+                ],
+                "vipType": "ignore",
+                "vipValue": []
+            },
+            "target": {
+                "vipObjectType": "tree",
+                "vipPrimaryKey": [
+                    "vpn-id",
+                    "ip",
+                    "port"
+                ],
+                "vipType": "ignore",
+                "vipValue": []
+            }
+        },
+        "view": {
+            "vipObjectType": "tree",
+            "vipPrimaryKey": [
+                "name"
+            ],
+            "vipType": "constant",
+            "vipValue": [
+                {
+                    "name": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "DEVNET"
+                    },
+                    "priority-order": [
+                        "name"
+                    ]
+                }
+            ]
+        }
+    },
+    "templateDescription": "SNMP GLOBAL TEMPLATE",
+    "templateMinVersion": "15.0.0",
+    "templateName": "SNMP_GLOBAL_TEMPLATE",
+    "templateType": "snmp"
+}

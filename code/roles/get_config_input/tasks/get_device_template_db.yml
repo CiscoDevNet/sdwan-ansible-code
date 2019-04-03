@@ -1,0 +1,13 @@
+- uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/device
+    method: GET
+    validate_certs: no
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"
+  register: device_template_list
+
+- set_fact:
+    device_template_db: "{{ device_template_db|default({}) | combine( {item.templateName: item.templateId} ) }}"
+  no_log: True
+  with_items: "{{ device_template_list.json.data }}"

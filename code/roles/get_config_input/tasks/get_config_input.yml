@@ -1,0 +1,18 @@
+- uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/device/config/input
+    method: POST
+    validate_certs: no
+    body:
+      templateId: "{{ device_template_db[Device_Template_Name] }}"
+      deviceIds:
+        - "{{ Device_UUID }}"
+      isEdited: "false"
+      isMasterEdited: "false"
+    body_format: "json"
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"
+  register: required_input
+
+- debug:
+    msg: "{{ required_input.json.data }}"

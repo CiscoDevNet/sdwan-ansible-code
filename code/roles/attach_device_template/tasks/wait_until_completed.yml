@@ -1,0 +1,18 @@
+- debug:
+    msg: "{{result.json.id}}"
+
+- uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/device/action/status/{{result.json.id}}
+    method: GET
+    validate_certs: no
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"
+  register: state
+  until: "state.json.data[0].status != 'In progress'"
+  reties: 5
+  delay: 10
+
+- debug:
+    msg: "{{state.json.data[0].status}}"
+

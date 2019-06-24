@@ -4,47 +4,6 @@
     ],
     "factoryDefault": false,
     "templateDefinition": {
-        "dns": {
-            "vipObjectType": "tree",
-            "vipPrimaryKey": [
-                "dns-addr"
-            ],
-            "vipType": "constant",
-            "vipValue": [
-                {
-                    "dns-addr": {
-                        "vipObjectType": "object",
-                        "vipType": "constant",
-                        "vipValue": "8.8.8.8"
-                    },
-                    "priority-order": [
-                        "dns-addr",
-                        "role"
-                    ],
-                    "role": {
-                        "vipObjectType": "object",
-                        "vipType": "constant",
-                        "vipValue": "primary"
-                    }
-                },
-                {
-                    "dns-addr": {
-                        "vipObjectType": "object",
-                        "vipType": "constant",
-                        "vipValue": "8.8.4.4"
-                    },
-                    "priority-order": [
-                        "dns-addr",
-                        "role"
-                    ],
-                    "role": {
-                        "vipObjectType": "object",
-                        "vipType": "constant",
-                        "vipValue": "secondary"
-                    }
-                }
-            ]
-        },
         "ecmp-hash-key": {
             "layer4": {
                 "vipObjectType": "object",
@@ -68,8 +27,7 @@
         "ipv6": {},
         "name": {
             "vipObjectType": "object",
-            "vipType": "constant",
-            "vipValue": "VPN1",
+            "vipType": "ignore",
             "vipVariableName": "vpn_name"
         },
         "omp": {
@@ -102,7 +60,7 @@
             "vipValue": 1
         }
     },
-    "templateDescription": "VPN1 TEMPLATE",
+    "templateDescription": "VPN1_TEMPLATE",
     "templateMinVersion": "15.0.0",
     "templateName": "VPN1_TEMPLATE",
     "templateType": "vpn-vedge"

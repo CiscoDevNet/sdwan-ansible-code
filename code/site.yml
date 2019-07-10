@@ -8,8 +8,7 @@
 
 - import_playbook: playbooks/learning_lab_2.yml
 
-#- import_playbook: playbooks/learning_lab_3.yml
-#  tags: lab3
+- import_playbook: playbooks/learning_lab_3.yml
 
 #- import_playbook: playbooks/learning_lab_4.yml
 #  tags: lab4

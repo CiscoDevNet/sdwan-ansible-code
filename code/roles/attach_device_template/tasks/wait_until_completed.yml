@@ -10,7 +10,7 @@
       Content-Type: "application/json"
   register: state
   until: "state.json.data[0].status != 'In progress'"
-  reties: 5
+  retries: 5
   delay: 10
 
 - debug:

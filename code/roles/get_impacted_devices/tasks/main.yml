@@ -1,0 +1,5 @@
+- import_tasks: get_impacted_device_templates.yml
+
+- import_tasks: get_impacted_devices.yml
+
+- import_tasks: get_config_of_impacted_devices.yml

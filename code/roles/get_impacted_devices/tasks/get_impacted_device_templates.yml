@@ -1,0 +1,7 @@
+- set_fact:
+    impacted_device_templates: "{{ modified_templates.results[0].json.masterTemplatesAffected }}"
+  no_log: True
+
+- name: Impacted Device Templates
+  debug:
+    var: impacted_device_templates

@@ -1,0 +1,27 @@
+- set_fact:
+    impacted_device_templates: "{{ modified_templates.results[0].json.masterTemplatesAffected }}"
+  no_log: True
+
+- name: Impacted Device Templates
+  debug:
+    var: impacted_device_templates
+
+- name: Get devices attached to a given template
+  uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/device/config/attached/{{item}}
+    method: GET
+    validate_certs: no
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"
+  with_items: "{{impacted_device_templates}}"
+  register: device_attached_to_a_given_template
+
+- set_fact:
+    device_attached: "{{ device_attached|default({}) | combine( {item.item: item.json.data } ) }}"
+  no_log: True
+  with_items: "{{ device_attached_to_a_given_template.results }}"
+
+- name: Impacted Devices
+  debug:
+    var: device_attached

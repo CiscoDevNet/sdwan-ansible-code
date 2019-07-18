@@ -1,20 +1,12 @@
 {
    "deviceTemplateList":[
+{% for template,devicelist in  DeviceTemplateList.iteritems()  %}
       {
-         "templateId":"{{ device_template_db[Template_Name] }}",
-         "device":[
-            {
-
-{% for variable,value in  RequiredInput.iteritems()  %}
-               "{{variable}}" : "{{value|lower}}",
+          "templateId": "{{ template if template not in device_template_db else device_template_db[template]  }}",
+          "device": {{ devicelist | to_json }},
+          "isEdited": {{ Change | default('false')}},
+          "isMasterEdited":false
+      },
 {% endfor %}
-
-
-
-            }
-         ],
-         "isEdited":false,
-         "isMasterEdited":false
-      }
    ]
 }

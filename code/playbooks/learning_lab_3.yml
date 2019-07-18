@@ -53,12 +53,12 @@
          - Login_Banner: 'This banner has just been modified from LAB 3'
          - MOTD: 'LAB 3 rules'
 
-    -  role: get_impacted_device_templates
+    -  role: get_impacted_devices
        tags: lab3,lab3:modify
 
     -  role: attach_device_template
        tags: lab3,lab3:modify
        vars:
-          DeviceTemplateList: "{{reattach_devices}}"
+          DeviceTemplateList: "{{impacted_devices_config}}"
           Change: true
 

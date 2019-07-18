@@ -1,0 +1,64 @@
+---
+- name: CiscoDevNet SDWAN Ansible Learning Lab 3
+  hosts: all
+  connection: local
+  gather_facts: no
+
+  roles:
+    -  role: login
+       tags: lab3,lab3:login,lab3:device,lab3:attach,lab3:modify
+
+    -  role: create_device_template
+       tags: lab3,lab3:device
+       vars:
+         - Device_Template_Name: 'DeviceTemplate2'
+         - Device_Template_Description: 'Automatically generated'
+         - Feature_AAA: Factory_Default_AAA_Template
+         - Feature_BFD: Factory_Default_BFD_Template
+         - Feature_Banner: DevNetSandbox
+         - Feature_Logging: Factory_Default_Logging_Template
+         - Feature_NTP: NTP_SERVER_TEMPLATE
+         - Feature_OMP: Factory_Default_vEdge_OMP_Template
+         - Feature_SNMP: SNMP_GLOBAL_TEMPLATE
+         - Feature_Security: Factory_Default_vEdge_Security_Template
+         - Feature_System: Factory_Default_vEdge_System_Template
+         - Feature_VPN:
+            Factory_Default_vEdge_VPN_0_Template:
+            - GE0/0_MGMT_INTERFACE
+            Factory_Default_vEdge_VPN_512_Template:
+            - VPN512_ETH0_TEMPLATE
+            VPN1_TEMPLATE:
+            - LOOPBACK1_TEMPLATE
+
+    -  role: attach_device_template
+       tags: lab3,lab3:attach
+       vars:
+          DeviceTemplateList:
+            DeviceTemplate2:
+              - csv-deviceIP: 4.4.4.61
+                csv-deviceId: f3d4159b-4172-462c-9c8d-8db76c31521d
+                csv-host-name: vedge-002-automatic
+                //system/host-name: vedge-002-automatic
+                //system/site-id: 200
+                //system/system-ip: 4.4.4.61
+                /0/ge0/0/interface/ip/address: 10.10.20.61/24
+                /1/loopback1/interface/ip/address: 4.4.4.61/32
+          Change: false
+
+    -  role: modify_banner_template
+       tags: lab3,lab3:modify
+       vars:
+         - Template_Name: 'DevNetSandbox'
+         - Template_Description: 'Description'
+         - Login_Banner: 'This banner has just been modified from LAB 3'
+         - MOTD: 'LAB 3 rules'
+
+    -  role: get_impacted_device_templates
+       tags: lab3,lab3:modify
+
+    -  role: attach_device_template
+       tags: lab3,lab3:modify
+       vars:
+          DeviceTemplateList: "{{reattach_devices}}"
+          Change: true
+

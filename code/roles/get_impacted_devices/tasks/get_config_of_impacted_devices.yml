@@ -1,0 +1,24 @@
+- name: Get current configuration for a device
+  uri:
+    url: https://{{ansible_host}}:{{ansible_port}}/dataservice/template/device/config/input/
+    method: POST
+    return_content: yes
+    validate_certs: no
+    body:
+      templateId: "{{ item.key }}"
+      deviceIds:  "{{ item.value |  map(attribute='uuid') | list }}"
+    body_format: json
+    headers:
+      Cookie: "{{login.set_cookie}}"
+      Content-Type: "application/json"
+  with_dict: "{{ device_attached }}"
+  register: device_values
+
+- set_fact:
+    impacted_devices_config: "{{ impacted_devices_config|default({}) | combine( {item.item.key: item.json.data } ) }}"
+  no_log: True
+  with_items: "{{ device_values.results }}"
+
+- name: Configuration that has to be reattached
+  debug:
+    var: impacted_devices_config

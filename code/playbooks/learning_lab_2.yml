@@ -42,14 +42,14 @@
     -  role: attach_device_template
        tags: lab2:attach
        vars:
-         - Template_Name: 'DeviceTemplate'
-         - RequiredInput:
-            csv-deviceIP: 4.4.4.60
-            csv-deviceId: 100faff9-8b36-4312-bf97-743b26bd0211
-            csv-host-name: vedge-001-automatic
-            //system/host-name: vedge-001-automatic
-            //system/site-id: 500
-            //system/system-ip: 4.4.4.60
-            /0/ge0/0/interface/ip/address: 10.10.20.60/24
-            /1/loopback1/interface/ip/address: 4.4.4.60/32
-
+           DeviceTemplateList:
+             DeviceTemplate2:
+               - csv-deviceIP: 4.4.4.60
+                 csv-deviceId: 100faff9-8b36-4312-bf97-743b26bd0211
+                 csv-host-name: vedge-001-automatic
+                 //system/host-name: vedge-001-automatic
+                 //system/site-id: 500
+                 //system/system-ip: 4.4.4.60
+                 /0/ge0/0/interface/ip/address: 10.10.20.60/24
+                 /1/loopback1/interface/ip/address: 4.4.4.60/32
+           Change: false

@@ -43,7 +43,7 @@
        tags: lab2:attach
        vars:
            DeviceTemplateList:
-             DeviceTemplate2:
+             DeviceTemplate:
                - csv-deviceIP: 4.4.4.60
                  csv-deviceId: 100faff9-8b36-4312-bf97-743b26bd0211
                  csv-host-name: vedge-001-automatic
